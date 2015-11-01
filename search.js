@@ -2,6 +2,8 @@
 
 (()=>{
 
+  let targetURL = 'https://www.google.co.jp/';
+
 let getURLData = (aURL)=> {
   var parser = document.createElement('a');
   parser.href = aURL;
@@ -17,13 +19,16 @@ let getURLData = (aURL)=> {
   };
 };
 
-
+//ポップアップを閉じる
+let closeFunc = ()=> {
+  window.close();  // popupを閉じる処理
+};
 
 let getWindowInfo = (aCallback)=> {
 
   chrome.tabs.query({
     active: true,
-    url: 'https://www.google.co.jp/search?q=*'
+    url: targetURL + '*'
   }, aCallback);
 
 };
@@ -36,8 +41,18 @@ let setURL = (tabID, aURL)=> {
 getWindowInfo((tabs)=> {
   let tab = tabs[0];
 
+  console.log(tab);
+
+  if (tab == null || tab.url == null ||
+      tab.url.indexOf(targetURL) == null) {
+    closeFunc();
+  }
+
 
   let urlObj = getURLData(tab.url);
+
+
+
   let queries = urlObj.search.replace(/^\?/, '').split('&');
   let URL = urlObj.protocol + '//' + urlObj.host + urlObj.pathname + '?' + queries[0];
 
