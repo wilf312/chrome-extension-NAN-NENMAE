@@ -1,10 +1,11 @@
 {
-  "name": "NAN-NENMAE",
-  "version" : "0.3",
+  "name": "NAN-NENME",
+  "version" : "0.3.1",
   "manifest_version" : 2,
   "description": "Google Search select year ago",
   "permissions" : [
-    "https://www.google.co.jp/search?q=*",
+    "https://www.google.co.jp/search",
+    "https://www.google.co.jp/webhp",
     "tabs",
     "activeTab"
   ],
