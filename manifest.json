@@ -1,0 +1,17 @@
+{
+  "name": "NAN-NENMAE",
+  "version" : "0.1",
+  "manifest_version" : 2,
+  "description": "Google Search select year ago",
+  "permissions" : [
+    "https://www.google.co.jp/search?q=*",
+    "tabs",
+    "activeTab"
+  ],
+
+  "browser_action" : {
+    "default_icon" : "icon19.png",
+    "default_title": "Google Search select year ago",
+    "default_popup": "popup.html"
+  }
+}
