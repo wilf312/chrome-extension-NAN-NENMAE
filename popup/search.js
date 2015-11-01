@@ -80,7 +80,7 @@ let clickHandle = (dom, tabID, URL)=>{
 getWindowInfo((tabs)=> {
   let tab = tabs[0];
 
-  console.log(tab);
+  //console.log(tab);
 
   if (tab == null || tab.url == null ||
       tab.url.indexOf(targetURL) == null) {
